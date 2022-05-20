@@ -7,7 +7,7 @@ import "./assets/css/style.css";
 
 import Header from "./components/Header";
 import Main from "./components/Main";
-import Movie from "./components/Movie";
+import MovieTime from "./components/MovieTime";
 
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
         <Header />
         <Routes>
             <Route path="/" element={<Main />} />
-            <Route path="/filme:idFilme" element={<Movie />}/>
+            <Route path="/filme/:idFilme" element={<MovieTime />}/>
         </Routes>
     </BrowserRouter>
 	);

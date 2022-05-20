@@ -6,7 +6,7 @@ import Movie from "./Movie";
 
 
 export default function Main() {
-    const [movie, setMovie] = useState([]);
+    const [movie, setMovie] = useState();
     let MovieComponents = []
 
     useEffect(() => {
@@ -16,18 +16,25 @@ export default function Main() {
 		request.then(resposta => {
             console.log(resposta.data)
             setMovie(resposta.data);
-            console.log(movie)
 		});
 	}, []);
 
- 
+    if (movie) {
+    MovieComponents = movie.map((obj, index) =>  
+    <Movie 
+    key={index} 
+    id={obj.id}
+    title={obj.title} 
+    posterURL={obj.posterURL}/> 
+        );
+    }
     return (
     <>
         <div className="top">
              <h2>Selecione o filme</h2>
         </div>
         <div className="movies">
-            {MovieComponents}
+            {movie ? MovieComponents : <h2>Carregando...</h2>}
         </div>
     </>
     )
