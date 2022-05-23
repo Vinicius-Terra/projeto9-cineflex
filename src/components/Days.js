@@ -14,8 +14,12 @@ return (
     <div className="Times">
         <h4>{weekday} - {date}</h4>
         <div className="Bottons">
-            <div className="BottonTime">{time1}</div>
-            <div className="BottonTime">{time2}</div>
+            <Link to={`assentos/${id1}` } >
+                <div className="BottonTime"><p>{time1}</p></div>
+            </Link>
+            <Link to={`assentos/${id2}` } >
+                <div className="BottonTime"><p>{time2}</p></div>
+            </Link>
         </div>
     </div> 
     </>
